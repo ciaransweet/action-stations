@@ -1,6 +1,7 @@
 .PHONY: install
 install:
 	poetry install
+	echo "\r\nUSE THIS FOR IDE COMPLETION:\r\n\r\n$$(poetry env info -p)"
 
 .PHONY: lint
 lint:
