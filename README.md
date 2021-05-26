@@ -5,11 +5,13 @@ Welcome to `action-stations` - A repository where I'll try to demo a few example
 # Examples
 
 [![Example-1](https://github.com/ciaranevans/action-stations/actions/workflows/example-1-lint-and-unit-tests.yaml/badge.svg)](https://github.com/ciaranevans/action-stations/actions/workflows/example-1-lint-and-unit-tests.yaml)
+[![README](https://img.shields.io/static/v1?label=README&message=CLICK-HERE&logo=markdown&color=green)](./example-1-lint-and-unit-tests/README.md)
 
 [![Example-2](https://github.com/ciaranevans/action-stations/actions/workflows/example-2-caching.yaml/badge.svg)](https://github.com/ciaranevans/action-stations/actions/workflows/example-2-caching.yaml)
-
+[![README](https://img.shields.io/static/v1?label=README&message=CLICK-HERE&logo=markdown&color=green)](./example-2-caching/README.md)
 
 [![Example-3](https://github.com/ciaranevans/action-stations/actions/workflows/example-3-manual-invocation.yaml/badge.svg)](https://github.com/ciaranevans/action-stations/actions/workflows/example-3-manual-invocation.yaml)
+[![README](https://img.shields.io/static/v1?label=README&message=CLICK-HERE&logo=markdown&color=green)](./example-3-manual-invocation/README.md)
 
 # Development
 
