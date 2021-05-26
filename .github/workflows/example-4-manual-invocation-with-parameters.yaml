@@ -19,6 +19,4 @@ jobs:
 
       - name: Run script
         run: |
-          bash hello.sh $name
-        with:
-          name:  ${{ github.event.inputs.name || 'Workflow' }}
+          bash hello.sh ${{ github.event.inputs.stage || 'Workflow' }}
