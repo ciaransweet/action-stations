@@ -1,10 +1,9 @@
-name: CI
+name: Example 1 - Lint and Unit Tests
 on:
   push:
     branches: [main]
   pull_request:
     branches: [main]
-  workflow_dispatch:
 
 jobs:
   linting:
@@ -23,20 +22,13 @@ jobs:
           pip install wheel
           pip install poetry
 
-      - name: Setup Cache
-        uses: actions/cache@v2
-        id: cache
-        with:
-          path: .venv
-          key: venv-${{ runner.os }}-${{ hashFiles('**/poetry.lock') }}
-
       - name: Install dependencies
         run: |
-          make install
+          make example-1-install
 
       - name: linting
         run: |
-          make lint
+          make example-1-lint
   unit-tests:
     runs-on: ubuntu-20.04
     steps:
@@ -53,17 +45,10 @@ jobs:
           pip install wheel
           pip install poetry
 
-      - name: Setup Cache
-        uses: actions/cache@v2
-        id: cache
-        with:
-          path: .venv
-          key: venv-${{ runner.os }}-${{ hashFiles('**/poetry.lock') }}
-
       - name: Install dependencies
         run: |
-          make install
+          make example-1-install
 
       - name: Unit tests
         run: |
-          make unit-tests
+          make example-1-unit-tests

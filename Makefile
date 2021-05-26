@@ -1,19 +1,15 @@
-.PHONY: install
-install:
-	poetry install
-	echo "\r\nUSE THIS FOR IDE COMPLETION:\r\n\r\n$$(poetry env info -p)"
+.PHONY: example-1-install
+example-1-install:
+	$(MAKE) -C example-1-lint-and-unit-tests install
 
-.PHONY: lint
-lint:
-	poetry run flake8 src/ tests/
-	poetry run isort --check-only --profile black src/ tests/
-	poetry run black --check --diff src/ tests/
+.PHONY: example-1-lint
+example-1-lint:
+	$(MAKE) -C example-1-lint-and-unit-tests lint
 
-.PHONY: format
-format:
-	poetry run isort --profile black src/ tests/
-	poetry run black src/ tests/
+.PHONY: example-1-format
+example-1-format:
+	$(MAKE) -C example-1-lint-and-unit-tests format
 
-.PHONY: unit-tests
-unit-tests:
-	poetry run pytest -s tests/
+.PHONY: example-1-unit-tests
+example-1-unit-tests:
+	$(MAKE) -C example-1-lint-and-unit-tests unit-tests
