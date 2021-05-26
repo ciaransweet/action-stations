@@ -2,6 +2,10 @@
 
 Welcome to `action-stations` - A repository where I'll try to demo a few examples of GitHub Actions and how to use them 🎉
 
+# Examples
+
+[![Example-1](https://github.com/ciaranevans/action-stations/actions/workflows/example-1-lint-and-unit-tests.yaml/badge.svg)](https://github.com/ciaranevans/action-stations/actions/workflows/example-1-lint-and-unit-tests.yaml)
+
 # Development
 
 ## Requirements
