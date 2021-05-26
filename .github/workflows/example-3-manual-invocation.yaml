@@ -17,7 +17,7 @@ jobs:
         run: |
           if [[ $GITHUB_EVENT_NAME == "workflow_dispatch" ]]
           then
-            echo example-3-manual-invocation/hello-manual.txt
+            cat example-3-manual-invocation/hello-manual.txt
           else
-            echo example-3-manual-invocation/hello-other.txt
+            cat example-3-manual-invocation/hello-other.txt
           fi
