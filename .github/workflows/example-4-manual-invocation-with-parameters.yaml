@@ -1,4 +1,4 @@
-name: Example 3 - Manual Invocation With Parameters
+name: Example 4 - Manual Invocation With Parameters
 on:
   push:
     branches: [main]
@@ -19,4 +19,4 @@ jobs:
 
       - name: Run script
         run: |
-          bash hello.sh ${{ github.event.inputs.stage || 'Workflow' }}
+          bash example-4-manual-invocation-with-parameters/hello.sh ${{ github.event.inputs.stage || 'Workflow' }}
