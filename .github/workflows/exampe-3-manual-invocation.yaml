@@ -1,0 +1,23 @@
+name: Example 3 - Manual Invocation
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+
+jobs:
+  echo-hello:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Echo Hello
+        run: |
+          if [[ $GITHUB_EVENT_NAME == "workflow_dispatch" ]]
+          then
+            echo example-3-manual-invocation/hello-manual.txt
+          else
+            echo example-3-manual-invocation/hello-other.txt
+          fi

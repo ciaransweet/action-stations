@@ -5,8 +5,11 @@ Welcome to `action-stations` - A repository where I'll try to demo a few example
 # Examples
 
 [![Example-1](https://github.com/ciaranevans/action-stations/actions/workflows/example-1-lint-and-unit-tests.yaml/badge.svg)](https://github.com/ciaranevans/action-stations/actions/workflows/example-1-lint-and-unit-tests.yaml)
+
 [![Example-2](https://github.com/ciaranevans/action-stations/actions/workflows/example-2-caching.yaml/badge.svg)](https://github.com/ciaranevans/action-stations/actions/workflows/example-2-caching.yaml)
 
+
+[![Example-3](https://github.com/ciaranevans/action-stations/actions/workflows/example-3-manual-invocation/badge.svg)](https://github.com/ciaranevans/action-stations/actions/workflows/example-3-manual-invocation.yaml)
 # Development
 
 ## Requirements
