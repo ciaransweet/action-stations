@@ -20,8 +20,14 @@ Welcome to `action-stations` - A repository where I'll try to demo a few example
 
 ## Requirements
 
+### All Examples
 * [Python 3.8.*](https://www.python.org/downloads/) (I recommend using [pyenv](https://github.com/pyenv/pyenv) to handle Python versions)
 * [Poetry](https://github.com/python-poetry/poetry)
+
+### CDK Examples
+* [Node 14](https://nodejs.org/en/) (I recommend using NVM [Node Version Manager](https://github.com/nvm-sh/nvm))
+* [AWS CDK](https://docs.aws.amazon.com/cdk/latest/guide/getting_started.html) - There is a `package.json` in the cdk examples, it's recommended to run `npm install` in the examples directories and make use of `npx <command>` rather than globally installing AWS CDK
+* [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html)
 
 If you're developing on MacOS, the above can be installed using [homebrew](https://brew.sh/)
 
