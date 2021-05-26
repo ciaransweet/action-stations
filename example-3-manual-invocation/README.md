@@ -22,29 +22,3 @@ This workflow **only** runs when either a commit is pushed to the `main` branch,
 ![Workflow Dispatch UI](./workflow_dispatch_ui.png)
 
 This is different to re-running a flow, which will only run with the exact same state it did previously.
-
-# Development
-
-To get setup, run:
-
-```bash
-$ make install # Installs the dependencies in `pyproject.toml`, sets up a Poetry Virtual Environment, and echoes its location for use in IDEs
-```
-
-To lint the code in `src/` and `tests/`, run:
-
-```bash
-$ make lint # Runs flake8, isort, and black in check only mode and outputs any linting issues
-```
-
-To format the code in `src/` and `tests/`, run:
-
-```bash
-$ make format # Runs isort and black, formatting your code
-```
-
-To run the unit tests, run:
-
-```bash
-$ make unit-tests # Runs the unit test suite in `tests/`
-```
