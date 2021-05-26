@@ -1,0 +1,70 @@
+name: Example 2 - Caching
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  linting:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Python 3.8.10
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8.10
+
+      - name: Install Poetry
+        run: |
+          pip install -U pip
+          pip install wheel
+          pip install poetry
+
+      - name: Setup Cache
+        uses: actions/cache@v2
+        id: cache
+        with:
+          path: example-2-caching/.venv
+          key: example-2-caching-venv-${{ runner.os }}-${{ hashFiles('**/poetry.lock') }}
+
+      - name: Install dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: |
+          make example-2-install
+
+      - name: linting
+        run: |
+          make example-2-lint
+  unit-tests:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Python 3.8.10
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8.10
+
+      - name: Install Poetry
+        run: |
+          pip install -U pip
+          pip install wheel
+          pip install poetry
+
+      - name: Setup Cache
+        uses: actions/cache@v2
+        id: cache
+        with:
+          path: example-2-caching/.venv
+          key: example-2-caching-venv-${{ runner.os }}-${{ hashFiles('**/poetry.lock') }}
+
+      - name: Install dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: |
+          make example-2-install
+
+      - name: Unit tests
+        run: |
+          make example-2-unit-tests
