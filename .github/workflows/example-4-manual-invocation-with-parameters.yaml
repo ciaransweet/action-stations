@@ -19,4 +19,4 @@ jobs:
 
       - name: Run script
         run: |
-          bash example-4-manual-invocation-with-parameters/hello.sh ${{ github.event.inputs.stage || 'Workflow' }}
+          bash example-4-manual-invocation-with-parameters/hello.sh ${{ github.event.inputs.name || 'Workflow' }}
