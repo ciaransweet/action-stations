@@ -69,7 +69,11 @@ jobs:
           echo IDENTIFIER=dev >> example-5-cdk-with-environments/.env
           echo OWNER=action-stations-ci >> example-5-cdk-with-environments/.env
           echo AWS_DEFAULT_REGION=us-west-2 >> example-5-cdk-with-environments/.env
-          echo SECRET=\"${{ secrets.HTML_SECRET }}\" >> example-5-cdk-with-environments/.env
+          echo SECRET=\""${{ secrets.HTML_SECRET }}"\" >> example-5-cdk-with-environments/.env
+
+      - name: cat .env
+        run: |
+          cat example-5-cdk-with-environments/.env
 
       - name: Deploy Dev Stack
         run: |
