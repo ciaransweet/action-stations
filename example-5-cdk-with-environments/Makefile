@@ -19,6 +19,10 @@ format:
 unit-tests:
 	poetry run pytest -s tests/unit/
 
+.PHONY: integration-tests
+integration-tests:
+	poetry run dotenv run pytest -s tests/integration/
+
 .PHONY: diff
 diff:
 	poetry run dotenv run npx cdk diff --app cdk/app.py || true

@@ -46,6 +46,10 @@ example-5-format:
 example-5-unit-tests:
 	$(MAKE) -C example-5-cdk-with-environments unit-tests
 
+.PHONY: example-5-integration-tests
+example-5-integration-tests:
+	$(MAKE) -C example-5-cdk-with-environments integration-tests
+
 .PHONY: example-5-diff
 example-5-diff:
 	$(MAKE) -C example-5-cdk-with-environments diff
@@ -57,3 +61,7 @@ example-5-deploy:
 .PHONY: example-5-destroy
 example-5-destroy:
 	$(MAKE) -C example-5-cdk-with-environments destroy
+
+.PHONY: example-5-put-message
+example-5-put-message:
+	$(MAKE) -C example-5-cdk-with-environments put-message
