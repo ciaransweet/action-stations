@@ -37,58 +37,66 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Setup Python 3.8.10
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.8.10
+      # - name: Setup Python 3.8.10
+      #   uses: actions/setup-python@v2
+      #   with:
+      #     python-version: 3.8.10
 
-      - name: Install Poetry
-        run: |
-          pip install -U pip
-          pip install wheel
-          pip install poetry
+      # - name: Install Poetry
+      #   run: |
+      #     pip install -U pip
+      #     pip install wheel
+      #     pip install poetry
 
-      - name: Setup up Node
-        uses: actions/setup-node@v1
-        with:
-          node-version: 14
+      # - name: Setup up Node
+      #   uses: actions/setup-node@v1
+      #   with:
+      #     node-version: 14
 
-      - name: Install dependencies
-        run: |
-          make example-5-install
+      # - name: Install dependencies
+      #   run: |
+      #     make example-5-install
 
-      - name: Configure awscli
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-west-2
+      # - name: Configure awscli
+      #   uses: aws-actions/configure-aws-credentials@v1
+      #   with:
+      #     aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      #     aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      #     aws-region: us-west-2
 
       - name: Make .env file
         run: |
           echo IDENTIFIER=dev >> example-5-cdk-with-environments/.env
           echo OWNER=action-stations-ci >> example-5-cdk-with-environments/.env
           echo AWS_DEFAULT_REGION=us-west-2 >> example-5-cdk-with-environments/.env
-          echo SECRET='"${{ secrets.HTML_SECRET }}"' >> example-5-cdk-with-environments/.env
+          echo SECRET='\"${{ secrets.HTML_SECRET }}\"' >> example-5-cdk-with-environments/.env
 
-      - name: Deploy Dev Stack
+      - name: cat .env
         run: |
-          make example-5-deploy
+          cat example-5-cdk-with-environments/.env
 
-      - name: Put message in bucket
-        id: put-message
+      - name: read .env
         run: |
-          echo "::set-output name=messageurl::$(make -s example-5-put-message)"
+          (cd example-5-cdk-with-environments && poetry run dotenv run sh -c "echo $SECRET")
 
-      - name: Put message url in .env
-        run: |
-          echo DEPLOYED_MESSAGE_URL=${{ steps.put-message.outputs.messageurl }} >> example-5-cdk-with-environments/.env
+      # - name: Deploy Dev Stack
+      #   run: |
+      #     make example-5-deploy
 
-      - name: Run integration tests
-        run: |
-          make example-5-integration-tests
+      # - name: Put message in bucket
+      #   id: put-message
+      #   run: |
+      #     echo "::set-output name=messageurl::$(make -s example-5-put-message)"
 
-      - name: Destroy Dev Stack
-        if: always()
-        run: |
-          make example-5-destroy
+      # - name: Put message url in .env
+      #   run: |
+      #     echo DEPLOYED_MESSAGE_URL=${{ steps.put-message.outputs.messageurl }} >> example-5-cdk-with-environments/.env
+
+      # - name: Run integration tests
+      #   run: |
+      #     make example-5-integration-tests
+
+      # - name: Destroy Dev Stack
+      #   if: always()
+      #   run: |
+      #     make example-5-destroy
