@@ -88,6 +88,10 @@ jobs:
         run: |
           echo DEPLOYED_MESSAGE_URL=${{ steps.put-message.outputs.messageurl }} >> example-5-cdk-with-environments/.env
 
+      - name: Cat .env
+        run: |
+          cat example-5-cdk-with-environments/.env
+
       - name: Run integration tests
         run: |
           make example-5-integration-tests
