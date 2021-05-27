@@ -78,7 +78,7 @@ jobs:
       - name: Put message in bucket
         id: put-message
         run: |
-          echo "::[set-output name=messageurl::$(make example-5-put-message)"
+          echo "::set-output name=messageurl::$(make -s example-5-put-message)"
 
       - name: Echo url
         run: |
