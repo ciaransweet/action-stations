@@ -73,14 +73,6 @@ jobs:
           SECRET="${{ secrets.HTML_SECRET }}"
           EOF
 
-      - name: cat .env
-        run: |
-          cat example-5-cdk-with-environments/.env
-
-      - name: read .env
-        run: |
-          (cd example-5-cdk-with-environments && poetry run dotenv run sh -c "echo $SECRET")
-
       - name: Deploy Dev Stack
         run: |
           make example-5-deploy

@@ -38,4 +38,4 @@ destroy:
 
 .PHONY: put-message
 put-message:
-	@poetry run dotenv run sh -c 'python3 src/put_message.py $$IDENTIFIER example-5-outputs.json $$SECRET'
+	@poetry run dotenv run sh -c 'python3 src/put_message.py $$IDENTIFIER example-5-outputs.json "$$SECRET"'
