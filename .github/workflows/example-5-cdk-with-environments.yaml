@@ -29,3 +29,41 @@ jobs:
       - name: Unit tests
         run: |
           make example-5-unit-tests
+  dev-deployment:
+    runs-on: ubuntu-20.04
+    needs: [unit-tests]
+    environment:
+      name: dev
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Python 3.8.10
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8.10
+
+      - name: Install Poetry
+        run: |
+          pip install -U pip
+          pip install wheel
+          pip install poetry
+
+      - name: Setup up Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14
+
+      - name: Install dependencies
+        run: |
+          make example-5-install
+
+      - name: Configure awscli
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-west-2
+
+      - name: Deploy Dev Stack
+        run: |
+          make example-5-deploy
