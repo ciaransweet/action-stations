@@ -66,10 +66,12 @@ jobs:
 
       - name: Make .env file
         run: |
-          echo IDENTIFIER=dev >> example-5-cdk-with-environments/.env
-          echo OWNER=action-stations-ci >> example-5-cdk-with-environments/.env
-          echo AWS_DEFAULT_REGION=us-west-2 >> example-5-cdk-with-environments/.env
-          echo SECRET="hello-there" >> example-5-cdk-with-environments/.env
+          cat <<EOF >> example-5-cdk-with-environments/.env
+          IDENTIFIER=dev
+          OWNER=action-stations-ci
+          AWS_DEFAULT_REGION=us-west-2
+          SECRET="${{ secrets.HTML_SECRET }}"
+          EOF
 
       - name: cat .env
         run: |
