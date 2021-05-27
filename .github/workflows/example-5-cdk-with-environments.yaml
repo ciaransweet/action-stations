@@ -78,7 +78,11 @@ jobs:
       - name: Put message in bucket
         id: put-message
         run: |
-          echo "##[set-output name=messageurl;]$(echo $(make example-5-put-message)})"
+          echo "##[set-output name=messageurl;]$(echo $(make example-5-put-message))"
+
+      - name: Echo url
+        run: |
+          echo ${{ steps.put-message.outputs.messageurl }}
 
       - name: Put message url in .env
         run: |
