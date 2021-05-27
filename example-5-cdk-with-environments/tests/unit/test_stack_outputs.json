@@ -1,0 +1,6 @@
+{
+    "action-stations-example-5-tests": {
+        "messagebucketurltests": "https://test-bucket.s3.amazonaws.com",
+        "messagebucketnametests": "test-bucket"
+    }
+}
