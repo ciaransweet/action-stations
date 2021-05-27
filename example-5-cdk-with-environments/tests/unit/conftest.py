@@ -1,3 +1,5 @@
+import os
+
 import boto3
 from moto import mock_s3
 from pytest import fixture
@@ -8,8 +10,15 @@ def expected_file_contents() -> str:
     return """
 <h1>Hello there!</h1>
 
-You are seeing this message in the "Test" Environment
+You are seeing this message in the "tests" Environment<br>
+
+The secret is: "a-secret"
 """
+
+
+@fixture
+def test_stack_outputs_path() -> str:
+    return f"{os.path.dirname(os.path.abspath(__file__))}/test_stack_outputs.json"
 
 
 @fixture

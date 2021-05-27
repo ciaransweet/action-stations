@@ -13,7 +13,7 @@ lint:
 .PHONY: format
 format:
 	poetry run isort --profile black cdk/ src/ tests/
-	poetry run black cdk/ tests/
+	poetry run black cdk/ src/ tests/
 
 .PHONY: unit-tests
 unit-tests:
@@ -21,4 +21,17 @@ unit-tests:
 
 .PHONY: diff
 diff:
+	poetry run dotenv run npx cdk diff --app cdk/app.py || true
 
+.PHONY: deploy
+deploy:
+	poetry run dotenv run npx cdk deploy --app cdk/app.py --require-approval never --outputs-file example-5-outputs.json
+
+.PHONY: destroy
+destroy:
+	poetry run dotenv run npx cdk destroy --app cdk/app.py --force
+	rm example-5-outputs.json
+
+.PHONY: put-message
+put-message:
+	@poetry run dotenv run sh -c 'python3 src/put_message.py $$IDENTIFIER example-5-outputs.json $$SECRET'

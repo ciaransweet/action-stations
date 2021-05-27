@@ -10,6 +10,7 @@ python = "^3.8"
 "aws-cdk.core" = "^1.106.0"
 boto3 = "^1.17.80"
 "aws-cdk.aws-s3" = "^1.106.0"
+python-dotenv = "^0.17.1"
 
 [tool.poetry.dev-dependencies]
 black = "^21.5b1"
