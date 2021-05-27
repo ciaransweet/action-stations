@@ -64,4 +64,4 @@ example-5-destroy:
 
 .PHONY: example-5-put-message
 example-5-put-message:
-	$(MAKE) -C example-5-cdk-with-environments put-message
+	@$(MAKE) -C example-5-cdk-with-environments put-message
