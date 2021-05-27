@@ -16,6 +16,9 @@ Welcome to `action-stations` - A repository where I'll try to demo a few example
 [![Example-4](https://github.com/ciaranevans/action-stations/actions/workflows/example-4-manual-invocation-with-parameters.yaml/badge.svg)](https://github.com/ciaranevans/action-stations/actions/workflows/example-4-manual-invocation-with-parameters.yaml)
 [![README](https://img.shields.io/static/v1?label=README&message=CLICK-HERE&logo=markdown&color=green)](./example-4-manual-invocation-with-parameters/README.md)
 
+[![Example-5](https://github.com/ciaranevans/action-stations/actions/workflows/example-5-cdk-with-environments.yaml/badge.svg)](https://github.com/ciaranevans/action-stations/actions/workflows/example-5-cdk-with-environments.yaml)
+[![README](https://img.shields.io/static/v1?label=README&message=CLICK-HERE&logo=markdown&color=green)](./example-5-cdk-with-environments/README.md)
+
 # Development
 
 ## Requirements
