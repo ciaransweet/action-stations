@@ -6,32 +6,32 @@ on:
     branches: [main]
 
 jobs:
-  unit-tests:
-    runs-on: ubuntu-20.04
-    steps:
-      - uses: actions/checkout@v2
+  # unit-tests:
+  #   runs-on: ubuntu-20.04
+  #   steps:
+  #     - uses: actions/checkout@v2
 
-      - name: Setup Python 3.8.10
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.8.10
+  #     - name: Setup Python 3.8.10
+  #       uses: actions/setup-python@v2
+  #       with:
+  #         python-version: 3.8.10
 
-      - name: Install Poetry
-        run: |
-          pip install -U pip
-          pip install wheel
-          pip install poetry
+  #     - name: Install Poetry
+  #       run: |
+  #         pip install -U pip
+  #         pip install wheel
+  #         pip install poetry
 
-      - name: Install dependencies
-        run: |
-          make example-5-install
+  #     - name: Install dependencies
+  #       run: |
+  #         make example-5-install
 
-      - name: Unit tests
-        run: |
-          make example-5-unit-tests
+  #     - name: Unit tests
+  #       run: |
+  #         make example-5-unit-tests
   dev-deployment:
     runs-on: ubuntu-20.04
-    needs: [unit-tests]
+    # needs: [unit-tests]
     environment:
       name: dev
     steps:
@@ -78,7 +78,7 @@ jobs:
       - name: Put message in bucket
         id: put-message
         run: |
-          echo "##[set-output name=messageurl;]$(echo $(make example-5-put-message))"
+          echo "##[set-output name=messageurl;]$(make example-5-put-message)"
 
       - name: Echo url
         run: |
