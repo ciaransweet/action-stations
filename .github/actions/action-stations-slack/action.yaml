@@ -1,0 +1,19 @@
+name: 'Action Stations Slack Poster'
+description: 'An action that posts to the provided channel that a build has been kicked off for the given URL'
+inputs:
+  slack_bot_token:
+    description: 'The Bot User OAuth Token for the Slack App'
+    required: true
+  github_build_url:
+    description: 'The URL of the GitHub Actions Workflow running this Action'
+    required: true
+  slack_channel_id:
+    description: 'The Slack Channel ID for the bot to post to (CO*******)'
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.slack_bot_token }}
+    - ${{ inputs.github_build_url }}
+    - ${{ inputs.slack_channel_id }}

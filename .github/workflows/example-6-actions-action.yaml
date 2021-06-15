@@ -1,0 +1,20 @@
+name: Example 6 - GitHub Actions Action
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  send-slack-message:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Send message to Slack
+        uses: ./.github/actions/action-stations-slack
+        with:
+          slack_bot_token: ${{ secrets.SLACK_BOT_OAUTH_TOKEN }}
+          slack_channel_id: ${{ secrets.SLACK_CHANNEL_ID }}
+          github_build_url: "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
