@@ -25,7 +25,7 @@ def send_message(token: str, github_build_url: str, channel: str) -> None:
     client.chat_postMessage(
         channel=channel,
         blocks=message,
-        text="A build was kicked off!"
+        text=f"A build was kicked off at: {github_build_url}!"
     )
 
 if __name__ == "__main__":
