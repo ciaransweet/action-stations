@@ -16,5 +16,5 @@ jobs:
         with:
           slack_bot_token: ${{ secrets.SLACK_BOT_OAUTH_TOKEN }}
           slack_channel_id: ${{ secrets.SLACK_CHANNEL_ID }}
-          github_build_url: "https://github.com/${{ github.repository }}/pull/${{ github.event.pull_request.number }}/checks"
+          github_build_url: "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 
