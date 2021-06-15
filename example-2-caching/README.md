@@ -1,4 +1,4 @@
-# Example 1 - Caching
+# Example 2 - Caching
 
 ## TL;DR:
 
