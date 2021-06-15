@@ -109,3 +109,13 @@ Within [`.github/workflows/example-6-actions-action.yaml`](../.github/workflows/
   * We define `github_build_url` using the variables `github.repository` and `github.run_id` which are available to the workflows context
 
 This workflow **only** runs when either a commit is pushed to the `main` branch, or when a pull request is raised against the `main` branch.
+
+## What this looks like IRL
+
+Here's what the notification looks like on Google Chrome:
+
+![Google Chrome Notification](./chrome-notification.png)
+
+Here's what the Slack message looks like (App logos may vary):
+
+![Slack Message](./slack-message.png)
